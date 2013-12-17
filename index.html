@@ -1,0 +1,1917 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <script type="text/javascript" charset="utf-8" src="cordova-2.7.0.js"></script>
+    <link rel="stylesheet" href="jquery.mobile.structure-1.3.2.min.css" />
+    <link rel="Stylesheet" href="jquery.mobile-1.3.2.css" />
+    <script src="jquery.js"></script>
+    <script src="jquery.mobile-1.3.2.min.js"></script>
+    <style>
+        @font-face
+        {
+            font-family: 'myFirstFont';
+            src: url('TrajanPro-Regular.ttf');
+        }
+        body *
+        {
+            font-family: 'myFirstFont' !important;
+            font-weight: bolder;
+            text-shadow: 0.1em 0em 0.1em black;
+        }
+        
+        .MenuButton1
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/Tools.jpg') no-repeat center center !important;
+        }
+        .MenuButton2
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/Questions_Button.jpg') no-repeat center center !important;
+        }
+        .MenuButton3
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/ATasteOfCurry_Button.jpg') no-repeat center center !important;
+        }
+        .MenuButton4
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/Classes&Products.jpg') no-repeat center center !important;
+        }
+        .MenuButton5
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/News_Button.jpg') no-repeat center center !important;
+        }
+        .MenuButton6
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/YouTube_Button.jpg') no-repeat center center !important;
+        }
+        .MenuButton7
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/BlogTalkRadio_Button.jpg') no-repeat center center !important;
+        }
+        .MenuButton8
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/Facebook_Button.jpg') no-repeat center center !important;
+        }
+        .MenuButton9
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/Loop1_Button.jpg') no-repeat center center !important;
+        }
+        .MenuButton10
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/Loop2_Button.jpg') no-repeat center center !important;
+        }
+        .MenuButton11
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/Loop3_Button.jpg') no-repeat center center !important;
+        }
+        .ToolButton1
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/Tool1.png') no-repeat center center !important;
+        }
+        .ToolButton2
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/Tool2.png') no-repeat center center !important;
+        }
+        .ToolButton3
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/Tool3.png') no-repeat center center !important;
+        }
+        .ToolButton4
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/Tool4.png') no-repeat center center !important;
+        }
+        .NextButton
+        {
+            width: 48px !important;
+            height: 47px !important;
+            background: transparent url('images/Next.png') no-repeat center center !important;
+        }
+        .MenuButton
+        {
+            width: 48px !important;
+            height: 47px !important;
+            background: transparent url('images/Menu.png') no-repeat center center !important;
+        }
+        .BackButton
+        {
+            width: 48px !important;
+            height: 47px !important;
+            background: transparent url('images/Back.png') no-repeat center center !important;
+        }
+        .ClearingLoopsButton
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/ClearingLoops.jpg') no-repeat center center !important;
+        }
+        .ClassesButton
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/Classes.png') no-repeat center center !important;
+        }
+        .ProductsButton
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/Products.png') no-repeat center center !important;
+        }
+        .LatestNewsButton
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/Latest News.png') no-repeat center center !important;
+        }
+        .MoreOfThisButton
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/More of this.png') no-repeat center center !important;
+        }
+        .FreeGiftButton
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/Free Gift.png') no-repeat center center !important;
+        }
+        .KnowMoreButton
+        {
+            width: 90px !important;
+            height: 91px !important;
+            background: transparent url('images/Know More.png') no-repeat center center !important;
+        }
+        
+        .ui-header
+        {
+            padding: 0 !important;
+        }
+        .ui-content
+        {
+            padding: 0 !important;
+        }
+        .centered
+        {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -80px;
+            margin-left: -90px;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+
+        // Wait for Cordova to load
+        //
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        // Cordova is ready
+        //
+        function onDeviceReady() {
+            navigator.splashscreen.show();
+        }
+
+        //        $(document).on('pageinit', '#PageOne', function () { // the .on() method does require jQuery 1.7 + but this will allow you to have the contained code only run when the #splash page is initialized.
+        //            setTimeout(function () {
+        //                playWelcome();
+        //                $.mobile.changePage("#PageTwo", "fade");
+        //            }, 2000);
+        //        });
+        $(document).on('pageinit', '#PageTwo', function () { // the .on() method does require jQuery 1.7 + but this will allow you to have the contained code only run when the #splash page is initialized.
+
+            playWelcome();
+
+        });
+        $(document).on("click", ".show-page-loading-msg", function () {
+            var $this = $(this),
+				theme = $this.jqmData("theme") || $.mobile.loader.prototype.options.theme,
+				msgText = $this.jqmData("msgtext") || $.mobile.loader.prototype.options.text,
+				textVisible = $this.jqmData("textvisible") || $.mobile.loader.prototype.options.textVisible,
+				textonly = !!$this.jqmData("textonly");
+            html = $this.jqmData("html") || "";
+            $.mobile.loading('show', {
+                text: msgText,
+                textVisible: textVisible,
+                theme: theme,
+                textonly: textonly,
+                html: html
+            });
+        })
+		.on("click", ".hide-page-loading-msg", function () {
+		    $.mobile.loading('hide');
+		});
+
+        $(document).on("mobileinit", function () {
+            $.mobile.allowCrossDomainPages = true;
+            $.mobile.loader.prototype.options.text = "";
+            $.mobile.loader.prototype.options.textVisible = false;
+            //$.mobile.loader.prototype.options.theme = "b";
+            // $.mobile.loader.prototype.options.html = "";
+        });
+        function doWork(link) {
+            $.mobile.loading("show");
+            //Append a lot of paragraphs
+            //var html = '';
+            setTimeout(function () {
+                //window.location.href = link;
+                window.open(link, "_system");
+                $.mobile.loading('hide');
+            }, 2000);
+        }
+        $(document).on("click", "#btnFacebook", function () {
+            var link = 'https://www.facebook.com/RightRiches4U';
+            doWork(link);
+        });
+
+        $(document).on("click", "#btnYouTube", function () {
+            var link = 'https://www.youtube.com/user/rightriches4u';
+            doWork(link);
+        });
+        $(document).on("click", "#btnBlogTalkRadio", function () {
+            var link = 'http://www.blogtalkradio.com/howtobecomemoney';
+            doWork(link);
+        });
+        $(document).on("click", "#btnATasteOfCurry", function () {
+            var link = 'http://www.curry-glassell.com/a-taste-of-curry/';
+            doWork(link);
+        });
+        $(document).on("click", "#btnClasses", function () {
+            var link = 'http://www.curryglassell.accessconsciousness.com';
+            doWork(link);
+        });
+        $(document).on("click", "#btnProduct", function () {
+            var link = 'http://www.curry-glassell.com/products/';
+            doWork(link);
+        });
+        $(document).on("click", "#btnNews1", function () {
+            var link = 'http://www.curryglassell.com/';
+            doWork(link);
+        });
+        $(document).on("click", "#btnNews2", function () {
+            var link = 'http://eepurl.com/I6jPb';
+            doWork(link);
+        });
+        $(document).on("click", "#btnTool1", function () {
+            var link = 'https://www.youtube.com/watch?v=m5ObZVFqq64&feature=c4-overview-vl&list=PL1djvc_FN5k42RBufQ_8tMfqdHYWc85_w';
+            doWork(link);
+        });
+        $(document).on("click", "#btnTool2", function () {
+            var link = 'https://www.youtube.com/watch?v=m5ObZVFqq64&feature=c4-overview-vl&list=PL1djvc_FN5k42RBufQ_8tMfqdHYWc85_w';
+            doWork(link);
+        });
+        $(document).on("click", "#btnTool3", function () {
+            var link = 'https://www.youtube.com/watch?v=m5ObZVFqq64&feature=c4-overview-vl&list=PL1djvc_FN5k42RBufQ_8tMfqdHYWc85_w';
+            doWork(link);
+        });
+        $(document).on("click", "#btnTool4", function () {
+            var link = 'https://www.youtube.com/watch?v=m5ObZVFqq64&feature=c4-overview-vl&list=PL1djvc_FN5k42RBufQ_8tMfqdHYWc85_w';
+            doWork(link);
+        });
+        
+    </script>
+    <!--                             Script for sound                           -->
+    <script>
+        //---------------Loop 1-----------------//
+        var myaudioLoop1 = new Media('/android_asset/www/audio/Loop1.mp3');
+        function playLoop1() {
+            try {
+                myaudioLoop1.id = 'playerMyAdio1';
+                myaudioLoop1.play();
+            } catch (e) {
+                // alert('no audio support!');
+            }
+        }
+        function stopLoop1() {
+            try {
+                myaudioLoop1.stop();
+            } catch (e) {
+                // alert('no audio support!');
+            }
+        }
+        //---------------Loop 2-----------------//
+        var myaudioLoop2 = new Media('/android_asset/www/audio/Loop2.mp3');
+        function playLoop2() {
+            try {
+                myaudioLoop2.id = 'playerMyAdio2';
+                myaudioLoop2.play();
+                myaudioLoop2.loop = true;
+            } catch (e) {
+                // alert('no audio support!');
+            }
+        }
+        function stopLoop2() {
+            try {
+                myaudioLoop2.stop();
+            } catch (e) {
+                //  alert('no audio support!');
+            }
+        }
+        //---------------Loop 3-----------------//
+        var myaudioLoop3 = new Media('/android_asset/www/audio/Loop3.mp3');
+        function playLoop3() {
+            try {
+                myaudioLoop3.id = 'playerMyAdio3';
+                myaudioLoop3.play();
+                myaudioLoop3.loop = true;
+            } catch (e) {
+                // alert('no audio support!');
+            }
+        }
+        function stopLoop3() {
+            try {
+                myaudioLoop3.stop();
+            } catch (e) {
+                //   alert('no audio support!');
+            }
+        }
+        //---------------Tool 1-----------------//
+        var myaudioTool1 = new Media('/android_asset/www/audio/Tool1.mp3');
+        function playTool1() {
+            try {
+                myaudioTool1.id = 'playerMyAdio12';
+                myaudioTool1.play();
+            } catch (e) {
+                //   alert('no audio support!');
+            }
+        }
+        function stopTool1() {
+            try {
+                myaudioTool1.stop();
+            } catch (e) {
+                //   alert('no audio support!');
+            }
+        }
+        //---------------Tool 2-----------------//
+        var myaudioTool2 = new Media('/android_asset/www/audio/Tool2.mp3');
+        function playTool2() {
+            try {
+                myaudioTool2.id = 'playerMyAdio13';
+                myaudioTool2.play();
+            } catch (e) {
+                //  alert('no audio support!');
+            }
+        }
+        function stopTool2() {
+            try {
+                myaudioTool2.stop();
+            } catch (e) {
+                //  alert('no audio support!');
+            }
+        }
+        //---------------Tool 3-----------------//
+        var myaudioTool3 = new Media('/android_asset/www/audio/Tool3.mp3');
+        function playTool3() {
+            try {
+                myaudioTool3.id = 'playerMyAdio14';
+                myaudioTool3.play();
+            } catch (e) {
+                //  alert('no audio support!');
+            }
+        }
+        function stopTool3() {
+            try {
+                myaudioTool3.stop();
+            } catch (e) {
+                //   alert('no audio support!');
+            }
+        }
+        //---------------Tool 4-----------------//
+        var myaudioTool4 = new Media('/android_asset/www/audio/Tool4.mp3');
+        function playTool4() {
+            try {
+                myaudioTool4.id = 'playerMyAdiotool4';
+                myaudioTool4.play();
+            } catch (e) {
+                //  alert('no audio support!');
+            }
+        }
+        function stopTool4() {
+            try {
+                myaudioTool4.stop();
+            } catch (e) {
+                //   alert('no audio support!');
+            }
+        }
+        //---------------Question 1-----------------//
+        var myaudioQuestion1 = new Media('/android_asset/www/audio/Question1.mp3');
+        function playQuestion1() {
+            try {
+                myaudioQuestion1.id = 'playerMyAdioQuestion1';
+                myaudioQuestion1.play();
+            } catch (e) {
+                //  alert('no audio support!');
+            }
+        }
+        function stopQuestion1() {
+            try {
+                myaudioQuestion1.stop();
+            } catch (e) {
+                //   alert('no audio support!');
+            }
+        }
+        //---------------Question 2-----------------//
+        var myaudioQuestion2 = new Media('/android_asset/www/audio/Question2.mp3');
+        function playQuestion2() {
+            try {
+                myaudioQuestion2.id = 'playerMyAdioQuestion2';
+                myaudioQuestion2.play();
+            } catch (e) {
+                //  alert('no audio support!');
+            }
+        }
+        function stopQuestion2() {
+            try {
+                myaudioQuestion2.stop();
+            } catch (e) {
+                //   alert('no audio support!');
+            }
+        }
+
+        //---------------Question 3-----------------//
+        var myaudioQuestion3 = new Media('/android_asset/www/audio/Question3.mp3');
+        function playQuestion3() {
+            try {
+                myaudioQuestion3.id = 'playerMyAudioQuestion3';
+                myaudioQuestion3.play();
+            } catch (e) {
+                //  alert('no audio support!');
+            }
+        }
+        function stopQuestion3() {
+            try {
+                myaudioQuestion3.stop();
+            } catch (e) {
+                //   alert('no audio support!');
+            }
+        }
+        //---------------Question 4-----------------//
+        var myaudioQuestion4 = new Media('/android_asset/www/audio/Question4.mp3');
+        function playQuestion4() {
+            try {
+                myaudioQuestion4.id = 'playerMyAudioQuestion4';
+                myaudioQuestion4.play();
+            } catch (e) {
+                //  alert('no audio support!');
+            }
+        }
+        function stopQuestion4() {
+            try {
+                myaudioQuestion4.stop();
+            } catch (e) {
+                //   alert('no audio support!');
+            }
+        }
+        //---------------Question 5-----------------//
+        var myaudioQuestion5 = new Media('/android_asset/www/audio/Question5.mp3');
+        function playQuestion5() {
+            try {
+                myaudioQuestion5.id = 'playerMyAdioQuestion5';
+                myaudioQuestion5.play();
+            } catch (e) {
+                //  alert('no audio support!');
+            }
+        }
+        function stopQuestion5() {
+            try {
+                myaudioQuestion5.stop();
+            } catch (e) {
+                //   alert('no audio support!');
+            }
+        }
+        //---------------Question 6-----------------//
+        var myaudioQuestion6 = new Media('/android_asset/www/audio/Question6.mp3');
+        function playQuestion6() {
+            try {
+                myaudioQuestion6.id = 'playerMyAudioQuestion6';
+                myaudioQuestion6.play();
+            } catch (e) {
+                //  alert('no audio support!');
+            }
+        }
+        function stopQuestion6() {
+            try {
+                myaudioQuestion6.stop();
+            } catch (e) {
+                //   alert('no audio support!');
+            }
+        }
+        //---------------Question 7-----------------//
+        var myaudioQuestion7 = new Media('/android_asset/www/audio/Question7.mp3');
+        function playQuestion7() {
+            try {
+                myaudioQuestion7.id = 'playerMyAudioQuestion7';
+                myaudioQuestion7.play();
+            } catch (e) {
+                //  alert('no audio support!');
+            }
+        }
+        function stopQuestion7() {
+            try {
+                myaudioQuestion7.stop();
+            } catch (e) {
+                //   alert('no audio support!');
+            }
+        }
+        //---------------Question 8-----------------//
+        var myaudioQuestion8 = new Media('/android_asset/www/audio/Question8.mp3');
+        function playQuestion8() {
+            try {
+                myaudioQuestion8.id = 'playerMyAudioQuestion8';
+                myaudioQuestion8.play();
+            } catch (e) {
+                //  alert('no audio support!');
+            }
+        }
+        function stopQuestion8() {
+            try {
+                myaudioQuestion8.stop();
+            } catch (e) {
+                //   alert('no audio support!');
+            }
+        }
+        //---------------Question 9-----------------//
+        var myaudioQuestion9 = new Media('/android_asset/www/audio/Question9.mp3');
+        function playQuestion9() {
+            try {
+                myaudioQuestion9.id = 'playerMyAudioQuestion9';
+                myaudioQuestion9.play();
+            } catch (e) {
+                //  alert('no audio support!');
+            }
+        }
+        function stopQuestion9() {
+            try {
+                myaudioQuestion9.stop();
+            } catch (e) {
+                //   alert('no audio support!');
+            }
+        }
+        //---------------Welcome-----------------//
+        var myaudioWelcome = new Media('/android_asset/www/audio/Welcome.mp3');
+        function playWelcome() {
+            try {
+                myaudioWelcome.id = 'playerMyAudioWelcome';
+                myaudioWelcome.play();
+            } catch (e) {
+                //  alert('no audio support!');
+            }
+        }
+        function stopWelcome() {
+            try {
+                myaudioWelcome.stop();
+            } catch (e) {
+                //   alert('no audio support!');
+            }
+        }
+    </script>
+</head>
+<body>
+    <!--  -----------------------------  Page One ----------------------------- -->
+    <!--<div data-role="page" id="PageOne" style="background-image: url(images/FirstPageBackground1.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div class="centered">
+            <img src="images/AppLogoImg_SMALL.png" />
+        </div>
+    </div>-->
+    <!-------------------------------  Page Two ------------------------------->
+    <div data-role="page" id="PageTwo" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div data-role="content">
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>WHAT IF YOU ARE<br />
+                                    MORE VALUABLE THAN<br />
+                                    YOU KNOW?</b></h3>
+                        </center>
+                    </div>
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>WHAT IF CREATING
+                                    <br />
+                                    MORE MONEY<br />
+                                    WAS EASY?</b></h3>
+                        </center>
+                    </div>
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>ARE YOU READY TO<br />
+                                    CHANGE?</b></h3>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b my-breakpoint" style="padding-bottom: 20px">
+                    <div class="ui-block-a">
+                        &nbsp;
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A9' href="#PageThree" data-transition="flip"
+                                onclick="stopWelcome();"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <center>
+                    <img src="images/Curry_Selection.jpg" width="100%" /></center>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------  Page Three ----------------------------- -->
+    <div data-role="page" id="PageThree" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div data-role="content">
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div class="ui-grid-b" style="min-width: 40%; max-width: 95%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <span style="float: right"><a data-role="button" class="MenuButton2 show-page-loading-msg"
+                        id='A1' data-corners="false" data-mini="false" data-theme="a" href="#PageQuestion1"
+                        onclick="playQuestion1();" data-transition="flip"></a></span>
+                </div>
+                <div class="ui-block-b">
+                    <center>
+                        <a data-role="button" class="MenuButton1 show-page-loading-msg" id='toggleButton'
+                            data-corners="false" data-mini="false" data-theme="a" href="#PageFour" data-transition="flip">
+                        </a>
+                    </center>
+                </div>
+                <div class="ui-block-c">
+                    <span style="float: left"><a data-role="button" class="ClearingLoopsButton show-page-loading-msg"
+                        id='A5' data-corners="false" data-mini="false" data-theme="a" href="#PageFive"
+                        data-transition="flip"></a></span>
+                </div>
+                <div class="ui-block-a">
+                    <span style="float: right"><a data-role="button" class="MenuButton3 show-page-loading-msg"
+                        id='btnATasteOfCurry' data-corners="false" data-mini="false" data-theme="a" data-transition="flip">
+                    </a></span>
+                </div>
+                <div class="ui-block-b">
+                    <center>
+                        <a data-role="button" class="MenuButton4 show-page-loading-msg" id='A3' data-corners="false"
+                            data-mini="false" data-theme="a" data-theme="a" href="#PageSeven" data-transition="flip">
+                        </a>
+                    </center>
+                </div>
+                <div class="ui-block-c">
+                    <span style="float: left"><a data-role="button" class="MenuButton5 show-page-loading-msg"
+                        id='A4' data-corners="false" data-mini="false" data-theme="a" href="#PageEight"
+                        data-transition="flip"></a></span>
+                </div>
+                <div class="ui-block-a">
+                    <span style="float: right"><a data-role="button" class="MenuButton8 show-page-loading-msg"
+                        id='btnFacebook' data-corners="false" data-mini="false" data-theme="a"></a></span>
+                </div>
+                <div class="ui-block-b">
+                    <center>
+                        <a data-role="button" class="MenuButton7 show-page-loading-msg" id='btnBlogTalkRadio'
+                            data-corners="false" data-mini="false" data-theme="a" data-transition="flip">
+                        </a>
+                    </center>
+                </div>
+                <div class="ui-block-c">
+                    <span style="float: left"><a data-role="button" class="MenuButton6 show-page-loading-msg"
+                        id='btnYouTube' data-corners="false" data-mini="false" data-theme="a" data-transition="flip">
+                    </a></span>
+                </div>
+            </div>
+            <div class="ui-grid-solo">
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------  Page Four ----------------------------- -->
+    <div data-role="page" id="PageFour" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-a " style="padding-bottom: 10px;">
+                    <div class="ui-block-a">
+                        <center>
+                            <a data-role="button" class="ToolButton1" id='A11' data-corners="false" data-mini="false"
+                                data-theme="a" href="#PageTool1" data-transition="flip" onclick="playTool1()">
+                            </a>
+                        </center>
+                    </div>
+                    <div class="ui-block-b">
+                        <center>
+                            <a data-role="button" class="ToolButton2" id='A13' data-corners="false" data-mini="false"
+                                data-theme="a" href="#PageTool2" data-transition="flip" onclick="playTool2()">
+                            </a>
+                        </center>
+                    </div>
+                    <div class="ui-block-a">
+                        <center>
+                            <a data-role="button" class="ToolButton3" id='A14' data-corners="false" data-mini="false"
+                                data-theme="a" href="#PageTool3" data-transition="flip" onclick="playTool3()">
+                            </a>
+                        </center>
+                    </div>
+                    <div class="ui-block-b">
+                        <center>
+                            <a data-role="button" class="ToolButton4" id='A16' data-corners="false" data-mini="false"
+                                data-theme="a" href="#PageTool4" data-transition="flip" onclick="playTool4()">
+                            </a>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="padding-bottom: 10px;">
+                    <div class="ui-block-a">
+                        &nbsp;
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A15' href="#PageThree" data-transition="flip"
+                                data-direction="reverse"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------  Page Five ----------------------------- -->
+    <div data-role="page" id="PageFive" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 40%; max-width: 95%; margin: 0px auto;">
+                <div class="ui-grid-b" style="margin: 0px auto; padding-top: 15px">
+                    <div class="ui-block-a">
+                        <span style="float: right"><a data-role="button" class="MenuButton9" id="A63" data-corners="false"
+                            data-mini="false" data-theme="a" href="#PageLoop1" onclick="playLoop1()" data-transition="flip">
+                        </a></span>
+                    </div>
+                    <div class="ui-block-b">
+                        <center>
+                            <a data-role="button" class="MenuButton10" id="butSoundLoop2" data-corners="false"
+                                data-mini="false" data-theme="a" href="#PageLoop2" data-transition="flip" onclick="playLoop2()">
+                            </a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        <span style="float: left"><a data-role="button" class="MenuButton11" id='butSoundLoop3'
+                            data-corners="false" data-mini="false" data-theme="a" href="#PageLoop3" data-transition="flip"
+                            onclick="playLoop3()"></a></span>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="padding-bottom: 10px; padding-top: 15px">
+                    <div class="ui-block-a">
+                        &nbsp;
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A66' href="#PageThree" data-transition="flip"
+                                data-direction="reverse"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 85%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------  Page Seven ----------------------------- -->
+    <div data-role="page" id="PageSeven" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-a" style="margin: 0px auto;">
+                        <center>
+                            <a data-role="button" class="ClassesButton" id='btnClasses' data-corners="false"
+                                data-mini="false" data-theme="a" data-transition="flip"></a>
+                            <!-- <a href="mailto:email@example.be"  data-role="button" data-inline="true" 
+   data-theme="d" rel="external" data-mini="true">Mail</a>-->
+                        </center>
+                    </div>
+                    <div class="ui-block-a" style="margin: 0px auto; padding-top: 20px">
+                        <center>
+                            <a data-role="button" class="ProductsButton" id='btnProduct' data-corners="false"
+                                data-mini="false" data-theme="a" data-transition="flip"></a>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b my-breakpoint" style="padding-top: 20px; padding-bottom: 15px">
+                    <div class="ui-block-a">
+                        &nbsp;
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A33' href="#PageThree" data-transition="flip">
+                            </a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-------------------------------  Page Eight ----------------------------- -->
+    <div data-role="page" id="PageEight" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div data-role="content">
+            <div class="ui-grid-solo">
+                <div class="ui-block-solo">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" />
+                    </center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-a" style="font-family: 'myFirstFont' !important; padding-bottom: 10px">
+                        <center>
+                            <a data-role="button" class="LatestNewsButton show-page-loading-msg" id='btnNews1'
+                                data-corners="false" data-mini="false" data-theme="a" data-transition="flip">
+                            </a>
+                        </center>
+                    </div>
+                    <div class="ui-block-a" style="font-family: 'myFirstFont' !important;">
+                        <center>
+                            <a data-role="button" class="FreeGiftButton show-page-loading-msg" id='btnNews2'
+                                data-corners="false" data-mini="false" data-theme="a" data-transition="flip">
+                            </a>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b my-breakpoint" style="padding-bottom: 20px">
+                    <div class="ui-block-a">
+                        &nbsp;
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A34' href="#PageThree" data-transition="flip">
+                            </a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------  Page Loop 1 ----------------------------- -->
+    <div data-role="page" id="PageLoop1" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>LOOP 1</b></h3>
+                        </center>
+                    </div>
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>WHAT CAN YOU BE<br />
+                                    OR DO DIFFERENT<br />
+                                    TODAY TO CREATE<br />
+                                    MORE CASH RIGHT<br />
+                                    AWAY?</b></h3>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="padding-top: 40px;">
+                    <div class="ui-block-a">
+                        <span style="float: right"><a data-role="button" class="BackButton" id='A18' data-transition="slide"
+                            data-direction="reverse" href="#PageLoop3" onclick="playLoop3();stopLoop1();"></a>
+                        </span>
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='MenuLoop1' href="#PageThree" data-transition="flip"
+                                data-direction="reverse" onclick="stopLoop1()"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        <span style="float: left"><a data-role="button" class="NextButton" id='A20' data-transition="slide"
+                            href="#PageLoop2" onclick="playLoop2();stopLoop1()"></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <center>
+                    <img src="images/Curry_Selection.jpg" width="100%" /></center>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------  Page Loop 2 ----------------------------- -->
+    <div data-role="page" id="PageLoop2" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>LOOP 2</b></h3>
+                        </center>
+                    </div>
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>PERCEIVE, KNOW, BE
+                                    <br />
+                                    AND RECEIVE WHAT
+                                    <br />
+                                    YOU REFUSE DARE NOT
+                                    <br />
+                                    MUST NEVER AND MUST<br />
+                                    ALSO, PERCEIVE, KNOW,<br />
+                                    BE AND RECEIVE THAT<br />
+                                    WOULD ALLOW YOU TO
+                                    <br />
+                                    DOUBLE YOUR INCOME<br />
+                                    IN NEXT SIX MONTH
+                                    <br />
+                                    WITH TOTAL EASE.</b></h3>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="padding-bottom: 20px;">
+                    <div class="ui-block-a">
+                        <span style="float: right"><a data-role="button" class="BackButton" id='A843' data-transition="slide"
+                            data-direction="reverse" href="#PageLoop1" onclick="playLoop1();stopLoop2();"></a>
+                        </span>
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A1232' href="#PageThree" data-transition="flip"
+                                data-direction="reverse" onclick="stopLoop2()"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        <span style="float: left"><a data-role="button" class="NextButton" id='A1734' data-transition="slide"
+                            href="#PageLoop3" onclick="playLoop3();stopLoop2()"></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------  Page Loop 3 ----------------------------- -->
+    <div data-role="page" id="PageLoop3" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>LOOP 3</b></h3>
+                        </center>
+                    </div>
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>HAVE YOU BOUGHT<br />
+                                    YOUR MOTHERS POINT
+                                    <br />
+                                    OF VIEW ABOUT MONEY
+                                    <br />
+                                    AND WEALTH?<br />
+                                    <br />
+                                    HAVE YOU<br />
+                                    BOUGHT YOUR FATHERS<br />
+                                    POINT OF VIEW ABOUT<br />
+                                    MONEY AND WEALTH?<br />
+                                    <br />
+                                    HAVE YOU BOUGHT<br />
+                                    YOUR CULTURES POINT<br />
+                                    OF VIEW ABOUT MONEY<br />
+                                    AND WEALTH?</b></h3>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="padding-bottom: 20px;">
+                    <div class="ui-block-a">
+                        <span style="float: right"><a data-role="button" class="BackButton" id='A1239' data-transition="slide"
+                            data-direction="reverse" href="#PageLoop2" onclick="playLoop2();stopLoop3();"></a>
+                        </span>
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A2311' href="#PageThree" data-transition="flip"
+                                data-direction="reverse" onclick="stopLoop3()"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        <span style="float: left"><a data-role="button" class="NextButton" id='A2232' data-transition="slide"
+                            href="#PageLoop1" onclick=" stopLoop3();playLoop1();"></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------  Page Tool 1 ----------------------------- -->
+    <div data-role="page" id="PageTool1" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>TOOL 1</b></h3>
+                        </center>
+                    </div>
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>ACCESS<br />
+                                    CONSCIOUSNESS <sup>
+                                        <img src="images/register.png" /></sup><br />
+                                    MANTRA<br />
+                                    <br />
+                                    ALL OF LIFE COMES<br />
+                                    TO ME WITH EASE,<br />
+                                    JOY & GLORY! <sup>
+                                        <img src="images/register.png" /></sup></b></h3>
+                        </center>
+                    </div>
+                    <div class="ui-block-solo">
+                        <center>
+                            <a data-role="button" class="KnowMoreButton show-page-loading-msg" id='btnTool1' data-corners="false" data-mini="false"
+                                data-theme="a" data-transition="flip"></a>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="padding-top: 0px; padding-bottom: 10px">
+                    <div class="ui-block-a">
+                        <span style="float: right"><a data-role="button" class="BackButton" id='A23' data-transition="slide"
+                            data-direction="reverse" href="#PageTool4" onclick="playTool4();stopTool1();"></a>
+                        </span>
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A24' href="#PageThree" data-transition="flip"
+                                data-direction="reverse" onclick="stopTool1();"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        <span style="float: left"><a data-role="button" class="NextButton" id='A25' data-transition="slide"
+                            href="#PageTool2" onclick="playTool2();stopTool1();"></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  ----------------------------- Page Tool 2 ----------------------------- -->
+    <div data-role="page" id="PageTool2" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>TOOL 2</b></h3>
+                        </center>
+                    </div>
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>HOW DOES IT GET<br />
+                                    ANY BETTER THAN<br />
+                                    THIS?<sup>
+                                        <img src="images/register.png" /></sup></b></h3>
+                        </center>
+                    </div>
+                    <div class="ui-block-solo" style="padding-top: 30px">
+                        <center>
+                            <a data-role="button" class="KnowMoreButton show-page-loading-msg" id='btnTool2' data-corners="false" data-mini="false"
+                                data-theme="a" data-transition="flip"></a>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="margin: 0px auto; padding-top: 55px;">
+                    <div class="ui-block-a">
+                        <span style="float: right"><a data-role="button" class="BackButton" id='A29' data-transition="slide"
+                            data-direction="reverse" href="#PageTool1" onclick="playTool1();stopTool2();"></a>
+                        </span>
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A30' href="#PageThree" data-transition="flip"
+                                data-direction="reverse" onclick="stopTool2();"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        <span style="float: left"><a data-role="button" class="NextButton" id='A31' data-transition="slide"
+                            href="#PageTool3" onclick="playTool3();stopTool2();"></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------Page Tool 3 ----------------------------- -->
+    <div data-role="page" id="PageTool3" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>TOOL 3</b></h3>
+                        </center>
+                    </div>
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>WHAT ELSE IS<br />
+                                    POSSIBLE?<sup>
+                                        <img src="images/register.png" /></sup></b></h3>
+                        </center>
+                    </div>
+                    <div class="ui-block-solo" style="padding-top: 40px">
+                        <center>
+                            <a data-role="button" class="MoreOfThisButton show-page-loading-msg" id='btnTool3' data-corners="false"
+                                data-mini="false" data-theme="a" data-transition="flip"></a>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="margin: 0px auto; padding-top: 70px;">
+                    <div class="ui-block-a">
+                        <span style="float: right"><a data-role="button" class="BackButton" id='A26' data-transition="slide"
+                            data-direction="reverse" href="#PageTool2" onclick="playTool2();stopTool3();"></a>
+                        </span>
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A27' href="#PageThree" data-transition="flip"
+                                data-direction="reverse" onclick="stopTool3();"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        <span style="float: left"><a data-role="button" class="NextButton" id='A28' data-transition="slide"
+                            href="#PageTool4" onclick="playTool4();stopTool3();"></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------Page Tool 4 ----------------------------- -->
+    <div data-role="page" id="PageTool4" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>TOOL 4</b></h3>
+                        </center>
+                    </div>
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>LIGHT & HEAVY </b>
+                            </h3>
+                        </center>
+                    </div>
+                    <div class="ui-block-solo" style="padding-top: 60px">
+                        <center>
+                            <a data-role="button" class="MoreOfThisButton show-page-loading-msg" id='btnTool4' data-corners="false"
+                                data-mini="false" data-theme="a" data-transition="flip"></a>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="margin: 0px auto; padding-top: 80px;">
+                    <div class="ui-block-a">
+                        <span style="float: right"><a data-role="button" class="BackButton" id='A10' data-transition="slide"
+                            data-direction="reverse" href="#PageTool3" onclick="playTool3();stopTool4();"></a>
+                        </span>
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A32' href="#PageThree" data-transition="flip"
+                                data-direction="reverse" onclick="stopTool4();"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        <span style="float: left"><a data-role="button" class="NextButton" id='A62' data-transition="slide"
+                            href="#PageTool1" onclick="playTool1();stopTool4();"></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------Page Question 1 ----------------------------- -->
+    <div data-role="page" id="PageQuestion1" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>WHAT DOES MONEY<br />
+                                    MEAN TO YOU?</b>
+                            </h3>
+                        </center>
+                    </div>
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>WHAT DOES<br />
+                                    WEALTH MEAN TO<br />
+                                    YOU?</b>
+                            </h3>
+                        </center>
+                    </div>
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>WHAT DOES<br />
+                                    SUCCESS MEAN TO<br />
+                                    YOU?</b>
+                            </h3>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="margin: 0px auto; padding-bottom: 20px;">
+                    <div class="ui-block-a">
+                        <span style="float: right"><a data-role="button" class="BackButton" id='A50' data-transition="slide"
+                            data-direction="reverse" href="#PageQuestion9" onclick="playQuestion9();stopQuestion1();">
+                        </a></span>
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A51' href="#PageThree" data-transition="flip"
+                                data-direction="reverse" onclick="stopQuestion1()"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        <span style="float: left"><a data-role="button" class="NextButton" id='A52' data-transition="slide"
+                            href="#PageQuestion2" onclick="playQuestion2();stopQuestion1()"></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------Page Question 2 ----------------------------- -->
+    <div data-role="page" id="PageQuestion2" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>WHO SHAPES YOUR<br />
+                                    REALITY WITH<br />
+                                    MONEY - YOU OR<br />
+                                    SOMEBODY ELSE?</b>
+                            </h3>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="margin: 0px auto; padding-top: 110px;">
+                    <div class="ui-block-a">
+                        <span style="float: right"><a data-role="button" class="BackButton" id='A53' data-transition="slide"
+                            data-direction="reverse" href="#PageQuestion1" onclick="playQuestion1();stopQuestion2();">
+                        </a></span>
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A54' href="#PageThree" data-transition="flip"
+                                data-direction="reverse" onclick="stopQuestion2()"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        <span style="float: left"><a data-role="button" class="NextButton" id='A55' data-transition="slide"
+                            href="#PageQuestion3" onclick="playQuestion3();stopQuestion2()"></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------Page Question 3 ----------------------------- -->
+    <div data-role="page" id="PageQuestion3" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>WHAT AMOUNT OF<br />
+                                    MONEY WOULD<br />
+                                    MAKE ALL YOUR<br />
+                                    PROBLEMS GO<br />
+                                    AWAY?</b></h3>
+                        </center>
+                    </div>
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>IS MONEY
+                                    <br />
+                                    REALLY THE ISSUE?</b></h3>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="margin: 0px auto; padding-top: 20px;">
+                    <div class="ui-block-a">
+                        <span style="float: right"><a data-role="button" class="BackButton" id='A56' data-transition="slide"
+                            data-direction="reverse" href="#PageQuestion2" onclick="playQuestion2();stopQuestion3();">
+                        </a></span>
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A57' href="#PageThree" data-transition="flip"
+                                data-direction="reverse" onclick="stopQuestion3()"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        <span style="float: left"><a data-role="button" class="NextButton" id='A58' data-transition="slide"
+                            href="#PageQuestion4" onclick="playQuestion4();stopQuestion3()"></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection_old.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------Page Question 4 ----------------------------- -->
+    <div data-role="page" id="PageQuestion4" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>WHAT IF MONEY<br />
+                                    WAS NOT THE<br />
+                                    PROBLEM?</b></h3>
+                        </center>
+                    </div>
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>AND WHAT IF<br />
+                                    MONEY WAS NOT<br />
+                                    THE ISSUE WHAT<br />
+                                    WOULD YOU<br />
+                                    CHOOSE?</b></h3>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="margin: 0px auto; padding-bottom: 20px;">
+                    <div class="ui-block-a">
+                        <span style="float: right"><a data-role="button" class="BackButton" id='A59' data-transition="slide"
+                            data-direction="reverse" href="#PageQuestion3" onclick="playQuestion3();stopQuestion4();">
+                        </a></span>
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A60' href="#PageThree" data-transition="flip"
+                                data-direction="reverse" onclick="stopQuestion4()"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        <span style="float: left"><a data-role="button" class="NextButton" id='A61' data-transition="slide"
+                            href="#PageQuestion5" onclick="playQuestion5();stopQuestion4()"></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection_old.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------Page Question 5 ----------------------------- -->
+    <div data-role="page" id="PageQuestion5" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>WHAT THOUGHTS,<br />
+                                    FEELINGS, AND<br />
+                                    EMOTIONS DO YOU<br />
+                                    HAVE AROUND<br />
+                                    MONEY? </b>
+                            </h3>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="padding-top: 80px;">
+                    <div class="ui-block-a">
+                        <span style="float: right"><a data-role="button" class="BackButton" id='A47' data-transition="slide"
+                            data-direction="reverse" href="#PageQuestion4" onclick="playQuestion4();stopQuestion5();">
+                        </a></span>
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A48' href="#PageThree" data-transition="flip"
+                                data-direction="reverse" onclick="stopQuestion5();"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        <span style="float: left"><a data-role="button" class="NextButton" id='A49' data-transition="slide"
+                            href="#PageQuestion6" onclick="playQuestion6();stopQuestion5();"></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection_old.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------Page Question 6 ----------------------------- -->
+    <div data-role="page" id="PageQuestion6" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>WHAT FEARS DO<br />
+                                    YOU HAVE ABOUT<br />
+                                    HAVING MONEY?<br />
+                                    <br />
+                                    WHAT FEARS DO<br />
+                                    YOU HAVE ABOUT<br />
+                                    HAVING NO<br />
+                                    MONEY?</b></h3>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="margin: 0px auto; padding-top: 20px;">
+                    <div class="ui-block-a">
+                        <span style="float: right"><a data-role="button" class="BackButton" id='A44' data-transition="slide"
+                            data-direction="reverse" href="#PageQuestion5" onclick="playQuestion5();stopQuestion6();">
+                        </a></span>
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A45' href="#PageThree" data-transition="flip"
+                                data-direction="reverse" onclick="stopQuestion6();"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        <span style="float: left"><a data-role="button" class="NextButton" id='A46' data-transition="slide"
+                            href="#PageQuestion7" onclick="playQuestion7();stopQuestion6();"></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection_old.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------Page Question 7 ----------------------------- -->
+    <div data-role="page" id="PageQuestion7" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-height: 350px; min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>IS MONEY<br />
+                                    SIGNIFICANT TO<br />
+                                    YOU?<br />
+                                    <br />
+                                    IS MONEY SERIOUS<br />
+                                    FOR YOU?</b></h3>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="margin: 0px auto; padding-top: 70px;">
+                    <div class="ui-block-a">
+                        <span style="float: right"><a data-role="button" class="BackButton" id='A41' data-transition="slide"
+                            data-direction="reverse" href="#PageQuestion6" onclick="playQuestion6();stopQuestion7();">
+                        </a></span>
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A42' href="#PageThree" data-transition="flip"
+                                data-direction="reverse" onclick="stopQuestion7();"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        <span style="float: left"><a data-role="button" class="NextButton" id='A43' data-transition="slide"
+                            href="#PageQuestion8" onclick="playQuestion8();stopQuestion7();"></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------Page Question 8 ----------------------------- -->
+    <div data-role="page" id="PageQuestion8" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>WHAT IF MONEY<br />
+                                    WAS A LAUGHING<br />
+                                    MATTER?<br />
+                                    <br />
+                                    WHAT IF MONEY<br />
+                                    DID NOT MATTER?<br />
+                                    <br />
+                                    WHAT REALLY<br />
+                                    MATTERS?</b></h3>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="padding-bottom: 20px;">
+                    <div class="ui-block-a">
+                        <span style="float: right"><a data-role="button" class="BackButton" id='A38' data-transition="slide"
+                            data-direction="reverse" href="#PageQuestion7" onclick="playQuestion7();stopQuestion8();">
+                        </a></span>
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A39' href="#PageThree" data-transition="flip"
+                                data-direction="reverse" onclick="stopQuestion8();"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        <span style="float: left"><a data-role="button" class="NextButton" id='A40' data-transition="slide"
+                            href="#PageQuestion9" onclick="playQuestion9();stopQuestion8();"></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -----------------------------Page Question 9 ----------------------------- -->
+    <div data-role="page" id="PageQuestion9" style="background-image: url(images/Background_3.jpg);
+        background-size: cover; background-repeat: no-repeat; background-position: center">
+        <div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/AppLogoImg_SMALL.png" /></center>
+                </div>
+            </div>
+            <div style="min-height: 350px; min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-grid-solo">
+                    &nbsp;
+                </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-solo">
+                        <center>
+                            <h3>
+                                <b>WHAT DO YOU<br />
+                                    KNOW ABOUT<br />
+                                    MONEY THAT YOU<br />
+                                    ARE PRETENDING<br />
+                                    NOT TO KNOW OR<br />
+                                    DENYING THAT YOU<br />
+                                    KNOW?</b></h3>
+                        </center>
+                    </div>
+                </div>
+                <div class="ui-grid-b " style="padding-top: 40px;">
+                    <div class="ui-block-a">
+                        <span style="float: right"><a data-role="button" class="BackButton" id='A35' data-transition="slide"
+                            data-direction="reverse" href="#PageQuestion8" onclick="playQuestion8();stopQuestion9();">
+                        </a></span>
+                    </div>
+                    <div class="ui-block-b {width:10%;float:none; }">
+                        <center>
+                            <a data-role="button" class="MenuButton" id='A36' href="#PageThree" data-transition="flip"
+                                data-direction="reverse" onclick="stopQuestion9();"></a>
+                        </center>
+                    </div>
+                    <div class="ui-block-c">
+                        <span style="float: left"><a data-role="button" class="NextButton" id='A37' data-transition="slide"
+                            href="#PageQuestion1" onclick="playQuestion1();stopQuestion9();"></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="min-width: 60%; max-width: 80%; margin: 0px auto;">
+                <div class="ui-block-a">
+                    <center>
+                        <img src="images/Curry_Selection.jpg" width="100%" /></center>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
